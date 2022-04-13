@@ -24,9 +24,9 @@
       <button class="button-primary" id="button">Submit</button>
     </form>
 
-    <u>Created By <a href="https://codoprobe.herokuapp.com" target="_blank">Codoprobe</a></u>
+    <u>Created By <a href="https://github.com/captainAyan/" target="_blank">@CaptainAyan</a></u>
     <br />
-    <u><a href="http://drive.google.com/uc?id=16wl_wzORjWKJvBEr0-10YviTuhl-g-Tk&export=download">Download Windows Client</a></u>
+    <u><a id="download_link" download>Download Windows Client</a></u>
 
   </div>
 </body>
@@ -57,5 +57,17 @@
     uuid = uInput.value.toUpperCase();
   })
 
+</script>
+<script>
+  (async () => {
+    const rawResponse = await fetch(
+      'https://api.github.com/repos/captainAyan/socket-keyboard/releases/latest',
+      {method: 'GET'}
+    );
+    const content = await rawResponse.json();
+    let version_name = content.tag_name;
+    let download_url = `https://github.com/captainAyan/socket-keyboard/releases/download/${version_name}/accountlite.exe`;
+    document.getElementById("download_link").href = download_url;
+  })();
 </script>
 </html>
