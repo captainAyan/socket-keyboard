@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <title>Socket Keyboard</title>
+</head>
+<body>
+  <div class="container">
+
+    <!-- UUID form -->
+    <form id="uuid_form">
+      <label for="exampleMessage">Enter UUID here</label>
+      <input class="u-full-width" type="text" placeholder="UUID here ..." id="uuid_input">
+      <button class="button-primary" id="uuid_button">Submit</button>
+    </form>
+
+    <!-- text form -->
+    <form id="text_form">
+      <label for="exampleMessage">Message</label>
+      <textarea class="u-full-width" placeholder="Hey, Bro ..." id="textarea"></textarea>
+      <button class="button-primary" id="button">Submit</button>
+    </form>
+
+    <u>Created By <a href="https://codoprobe.herokuapp.com" target="_blank">Codoprobe</a></u>
+    <br />
+    <u><a href="http://drive.google.com/uc?id=16wl_wzORjWKJvBEr0-10YviTuhl-g-Tk&export=download">Download Windows Client</a></u>
+
+  </div>
+</body>
+<script>
+  var uuid = "";
+  // ui elements
+  var btn = document.getElementById("button");
+  var text = document.getElementById("textarea");
+  var uBtn = document.getElementById("uuid_button");
+  var uInput = document.getElementById("uuid_input");
+
+  var socket = io.connect('/', {query: 'type=emitter'});
+
+  // disabling the form
+  document.getElementById("text_form").addEventListener("submit",e=>e.preventDefault());
+  document.getElementById("uuid_form").addEventListener("submit",e=>e.preventDefault());
+
+  btn.addEventListener("click", (e) => {
+    console.log(text.value)
+    socket.emit("message", {
+      to: uuid,
+      message: text.value
+    });
+    text.value = "";
+  })
+
+  uBtn.addEventListener("click", (e) => {
+    uuid = uInput.value.toUpperCase();
+  })
+
+</script>
+</html>

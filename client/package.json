@@ -1,0 +1,19 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "client.js",
+  "scripts": {
+    "start": "node client.js",
+    "build": "nexe"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sendkeys": "^1.1.1",
+    "socket.io-client": "^2.3.0"
+  },
+  "devDependencies": {
+    "nexe": "^3.3.2"
+  }
+}
