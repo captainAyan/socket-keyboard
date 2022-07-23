@@ -1,6 +1,8 @@
 <p align="center">
   <h1 align="center">Socket Keyboard ⌨️</h1>
-  <p align="center">Socket-Keyboard is keyboard using websockets</p>
+  <p align="center">
+    Socket-Keyboard is keyboard using websockets <b>(Not active)</b>
+  </p>
 </p>
 
 ## Getting Started
