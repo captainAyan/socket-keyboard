@@ -3,6 +3,9 @@
   <p align="center">
     Socket-Keyboard is keyboard using websockets <b>(Not active)</b>
   </p>
+  <p align="center">
+    <img src="https://github.com/captainAyan/socket-keyboard/blob/main/demo.gif?raw=true"></a>
+  </p>
 </p>
 
 ## Getting Started
